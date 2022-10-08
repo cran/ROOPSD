@@ -2,7 +2,7 @@
 ################################################################################
 ################################################################################
 ##                                                                            ##
-## Copyright Yoann Robin, 2020                                                ##
+## Copyright Yoann Robin, 2021                                                ##
 ##                                                                            ##
 ## yoann.robin.k@gmail.com                                                    ##
 ##                                                                            ##
@@ -43,7 +43,7 @@
 ################################################################################
 ################################################################################
 ##                                                                            ##
-## Copyright Yoann Robin, 2020                                                ##
+## Copyright Yoann Robin, 2021                                                ##
 ##                                                                            ##
 ## yoann.robin.k@gmail.com                                                    ##
 ##                                                                            ##
@@ -82,257 +82,170 @@
 ################################################################################
 ################################################################################
 
-
-#' GEV 
+#' mrv_histogram 
 #'
 #' @description
-#' GEV distribution in OOP way. Based on AbstractDist
+#' Multivariate rv_histogram distribution in OOP way.
 #'
 #' @details
-#' See AbstractDist for generic methods
-#'
-#' @importFrom Lmoments Lmoments
+#' Used for a multivariate dataset, fit each marge
 #'
 #' @examples
 #' ## Generate sample
-#' loc   = 0
-#' scale = 0.5
-#' shape = -0.3
-#' gev = ROOPSD::GEV$new( loc = loc , scale = scale , shape = shape )
-#' X   = gev$rvs( n = 1000 )
+#' X = matrix( stats::rnorm( n = 10000 ) , ncol = 4 )
 #'
-#' ## And fit parameters
-#' gev$fit(X)
+#' ## And fit it
+#' rvX = mrv_histogram$new()
+#' rvX$fit(X)
 #'
 #' @export
-GEV = R6::R6Class( "GEV",
-	
-	inherit = AbstractDist,
-	
-	## Private elements
-	##==============={{{
-	private = list(
-	
-	## Arguments
-	##==========
-	
-	#' @field loc [double] location of the GEV law
-	.loc = NULL,
-	#' @field scale [double] scale of the GEV law
-	.scale = NULL,
-	#' @field shape [double] shape of the GEV law
-	.shape = NULL,
-	#' @field params [vector] params of the GEV law
-	.params = NULL,
-	
-	## Methods
-	##========
-	
-	fit_initialization = function(Y)##{{{
-	{
-		lmom = Lmoments::Lmoments(Y)
-		
-		tau3  = lmom[3] / lmom[2]
-		co    = 2. / ( 3. + tau3 ) - base::log(2) / base::log(3)
-		kappa = 7.8590 * co + 2.9554 * co^2
-		g     = base::gamma( 1. + kappa )
-		
-		
-		self$scale = lmom[2] * kappa / ( (1 - 2^( - kappa )) * g )
-		self$loc   = lmom[1] - self$scale * (1 - g) / kappa
-		self$shape = - kappa
-	},
-	##}}}
-	
-	gradient_negloglikelihood = function( params , Y )##{{{
-	{
-		self$params = params
-		
-		## Remove 0 from shape
-		shape = self$shape
-		shape[base::abs(shape) < 1e-10] = 1e-10
-		
-		## Usefull values
-		Z      = ( Y - self$loc ) / self$scale
-		Za1    = 1 + shape * Z
-		ishape = 1. / shape
-		Zamsi  = Za1^(-ishape)
-		dp     = base::c(NA,NA,NA)
-		
-		
-		## Test
-		if( !(self$scale > 0) || !base::all(Za1 > 0) )
-			return(dp)
-		
-		## Gradient
-		dp[1] = base::sum( ( Zamsi - 1 - shape ) / ( self$scale * Za1 ) )
-		dp[2] = base::sum( ( 1. + Z * ( Zamsi - 1 - shape ) / Za1 ) / self$scale )
-		dp[3] = base::sum( ( ( Zamsi - 1. ) * base::log(Za1) * ishape**2 + ( 1. + ishape - ishape * Zamsi ) * Z / Za1 ) )
-		
-		return(dp)
-	}
-	##}}}
-	
-	),
-	##}}}
-	
-	## Active elements
-	##================{{{
-	active = list(
-	
-	## params ##{{{
-	params = function(value)
-	{
-		if(missing(value))
-		{
-			return( list( loc = private$.loc , scale = private$.scale , shape = private$.shape ) )
-		}
-		else
-		{
-			if(is.numeric(value) && length(value) == 3 )
-			{
-				private$.loc = value[1]
-				if( value[2] > 0 )
-					private$.scale = value[2]
-				private$.shape = value[3]
-			}
-			
-		}
-	},
-	##}}}
-	
-	## loc ##{{{
-	loc = function(value)
-	{
-		if(missing(value))
-		{
-			return(private$.loc)
-		}
-		else
-		{
-			private$.loc = value
-		}
-	},
-	##}}}
-	
-	## scale ##{{{
-	scale = function(value)
-	{
-		if(missing(value))
-		{
-			return(private$.scale)
-		}
-		else
-		{
-			if(value > 0)
-				private$.scale = value
-		}
-	},
-	##}}}
-	
-	## shape ##{{{
-	shape = function(value)
-	{
-		if(missing(value))
-		{
-			return(private$.shape)
-		}
-		else
-		{
-			private$.shape = value
-		}
-	}
-	##}}}
-	
-	
-	),
-	##}}}
-	
-	## Public elements
-	##============={{{
+mrv_histogram = R6::R6Class( "mrv_histogram" ,
 	
 	public = list(
 	
-	## Arguments
-	##==========
+	###############
+	## Arguments ##
+	###############
 	
-	## Constructor
-	##============
+	#' @field n_features [integer] Number of features (dimensions)
+	n_features = NULL,
+	#' @field law_ [list] List of marginal distributions
+	law_       = NULL,
+	
+	#################
+	## Constructor ##
+	#################
 	
 	## initialize ##{{{
 	#' @description
-    #' Create a new GEV object.
-	#' @param loc   [double] location parameter
-	#' @param scale [double] scale parameter
-	#' @param shape [double] shape parameter
-	#' @return A new `GEV` object.
-	initialize = function( loc = 0 , scale = 1 , shape = -0.1 )
+    #' Create a new mrv_histogram object.
+    #' @param ... If a param `Y` is given, the fit method is called with `...`.
+    #' @return A new `mrv_histogram` object.
+	initialize = function(...)
 	{
-		super$initialize( ROOPSD::dgev , ROOPSD::pgev , ROOPSD::qgev , ROOPSD::rgev , "GEV" , TRUE )
-		self$loc   = loc
-		self$scale = scale
-		self$shape = shape
+		self$n_features = 0
+		self$law_ = list()
+		kwargs = list(...)
+		if( !is.null(kwargs[["Y"]]) )
+			base::do.call( self$fit , kwargs )
 	},
 	##}}}
 	
-	## Methods
-	##========
-	
-	## qgradient ##{{{
+	## fit ##{{{
 	#' @description
-	#' Gradient of the quantile function
-    #' @param p [vector] Probabilities
-    #' @param lower.tail [bool] If CDF or SF.
-    #' @return [vector] gradient
-	qgradient = function( p , lower.tail = TRUE )
+    #' Fit method for the histograms
+    #' @param Y [vector] Dataset to infer the histogram
+    #' @param bins [list or vector or integer] bins values
+    #' @return `self`
+	fit = function( Y , bins = as.integer(100) )
 	{
-		if(!lower.tail)
-			p = 1 - p
-		loc   = self$loc
-		scale = self$scale
-		shape = self$shape
-		tp    = -base::log(p)
-		gradloc   = 1
-		gradscale = ( tp^(-shape) - 1 ) / shape
-		gradshape = scale * ( (1 - tp^(-shape)) / shape^2 - tp^(-shape) * base::log(tp) / shape )
-		grad = base::cbind(gradloc,gradscale,gradshape)
+		if( !is.matrix(Y) ) Y = matrix( Y , nrow = length(Y) , ncol = 1 )
+		self$n_features = ncol(Y)
 		
-		return(grad)
+		lbins = list()
+		if( !is.list(bins) )
+		{
+			for( i in 1:self$n_features )
+			{
+				lbins[[i]] = bins
+			}
+		}
+		else
+		{
+			lbins = bins
+		}
+		for( i in 1:self$n_features )
+		{
+			self$law_[[i]] = rv_histogram$new( Y = Y[,i] , lbins[[i]] )
+		}
+		return(self)
 	},
 	##}}}
 	
-	## pgradient ##{{{
+	## rvs ##{{{
 	#' @description
-	#' Gradient of the CDF function
-    #' @param x [vector] Quantiles
-    #' @param lower.tail [bool] If CDF or SF.
-    #' @return [vector] gradient
-	pgradient = function( x , lower.tail = TRUE )
+    #' Generation sample from the histogram
+    #' @param n [integer] Number of samples drawn
+    #' @return A matrix of samples
+	rvs = function( n = 1 )
 	{
-		loc   = self$loc
-		scale = self$scale
-		shape = self$shape
-		
-		p    = self$cdf(x)
-		Z    = (x-loc) / scale
-		ZZ   = 1 + shape * Z
-		ZZs  = ZZ^(-1/shape)
-		ZZs1 = ZZs / ZZ
-		
-		gradloc   = -p * ZZs1 / scale
-		gradscale = -p * ZZs1 * Z / scale
-		gradshape = -p / shape^2 * ZZs * ( log(ZZ) - shape * Z / ZZ )
-		grad = cbind(gradloc,gradscale,gradshape)
-		if(!lower.tail)
-			grad = -grad
-		
-		return(grad)
+		out = base::c()
+		for( i in 1:self$n_features )
+		{
+			out =  base::rbind( out , self$law_[[i]]$rvs(n) )
+		}
+		return(base::t(out))
+	},
+	##}}}
+	
+	## cdf ##{{{
+	#' @description
+    #' Cumulative Distribution Function
+    #' @param q [vector] Quantiles to compute the CDF
+    #' @return cdf values
+	cdf = function( q )
+	{
+		if( !is.matrix(q) ) q = matrix( q , nrow = length(q) , ncol = 1 )
+		out = base::c()
+		for( i in 1:self$n_features )
+		{
+			out =  base::rbind( out , self$law_[[i]]$cdf(q[,i]) )
+		}
+		return(base::t(out))
+	},
+	##}}}
+	
+	## sf ##{{{
+	#' @description
+    #' Survival Function
+    #' @param q [vector] Quantiles to compute the SF
+    #' @return sf values
+	sf = function( q )
+	{
+		if( !is.matrix(q) ) q = matrix( q , nrow = length(q) , ncol = 1 )
+		out = base::c()
+		for( i in 1:self$n_features )
+		{
+			out =  base::rbind( out , self$law_[[i]]$sf(q[,i]) )
+		}
+		return(base::t(out))
+	},
+	##}}}
+	
+	## icdf ##{{{
+	#' @description
+    #' Inverse of Cumulative Distribution Function
+    #' @param p [vector] Probabilities to compute the CDF
+    #' @return icdf values
+	icdf = function( p )
+	{
+		if( !is.matrix(p) ) p = matrix( p , nrow = length(p) , ncol = 1 )
+		out = base::c()
+		for( i in 1:self$n_features )
+		{
+			out =  base::rbind( out , self$law_[[i]]$icdf(p[,i]) )
+		}
+		return(base::t(out))
+	},
+	##}}}
+	
+	## isf ##{{{
+	#' @description
+    #' Inverse of Survival Function
+    #' @param p [vector] Probabilities to compute the SF
+    #' @return isf values
+	isf = function( p )
+	{
+		if( !is.matrix(p) ) p = matrix( p , nrow = length(p) , ncol = 1 )
+		out = base::c()
+		for( i in 1:self$n_features )
+		{
+			out =  base::rbind( out , self$law_[[i]]$isf(p[,i]) )
+		}
+		return(base::t(out))
 	}
 	##}}}
 	
 	)
-	##}}}
 	
 )
-
-

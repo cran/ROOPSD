@@ -34,19 +34,19 @@ rvX$fit( X , x0 = 0 )
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{rv_ratio_histogram$new()}}
-\item \href{#method-rvs}{\code{rv_ratio_histogram$rvs()}}
-\item \href{#method-cdf}{\code{rv_ratio_histogram$cdf()}}
-\item \href{#method-icdf}{\code{rv_ratio_histogram$icdf()}}
-\item \href{#method-sf}{\code{rv_ratio_histogram$sf()}}
-\item \href{#method-isf}{\code{rv_ratio_histogram$isf()}}
-\item \href{#method-fit}{\code{rv_ratio_histogram$fit()}}
-\item \href{#method-clone}{\code{rv_ratio_histogram$clone()}}
+\item \href{#method-rv_ratio_histogram-new}{\code{rv_ratio_histogram$new()}}
+\item \href{#method-rv_ratio_histogram-rvs}{\code{rv_ratio_histogram$rvs()}}
+\item \href{#method-rv_ratio_histogram-cdf}{\code{rv_ratio_histogram$cdf()}}
+\item \href{#method-rv_ratio_histogram-icdf}{\code{rv_ratio_histogram$icdf()}}
+\item \href{#method-rv_ratio_histogram-sf}{\code{rv_ratio_histogram$sf()}}
+\item \href{#method-rv_ratio_histogram-isf}{\code{rv_ratio_histogram$isf()}}
+\item \href{#method-rv_ratio_histogram-fit}{\code{rv_ratio_histogram$fit()}}
+\item \href{#method-rv_ratio_histogram-clone}{\code{rv_ratio_histogram$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-rv_ratio_histogram-new"></a>}}
+\if{latex}{\out{\hypertarget{method-rv_ratio_histogram-new}{}}}
 \subsection{Method \code{new()}}{
 Create a new rv_ratio_histogram object.
 \subsection{Usage}{
@@ -65,8 +65,8 @@ A new `rv_ratio_histogram` object.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-rvs"></a>}}
-\if{latex}{\out{\hypertarget{method-rvs}{}}}
+\if{html}{\out{<a id="method-rv_ratio_histogram-rvs"></a>}}
+\if{latex}{\out{\hypertarget{method-rv_ratio_histogram-rvs}{}}}
 \subsection{Method \code{rvs()}}{
 Generation sample from the histogram
 \subsection{Usage}{
@@ -85,8 +85,8 @@ A vector of samples
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-cdf"></a>}}
-\if{latex}{\out{\hypertarget{method-cdf}{}}}
+\if{html}{\out{<a id="method-rv_ratio_histogram-cdf"></a>}}
+\if{latex}{\out{\hypertarget{method-rv_ratio_histogram-cdf}{}}}
 \subsection{Method \code{cdf()}}{
 Cumulative Distribution Function
 \subsection{Usage}{
@@ -105,8 +105,8 @@ cdf values
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-icdf"></a>}}
-\if{latex}{\out{\hypertarget{method-icdf}{}}}
+\if{html}{\out{<a id="method-rv_ratio_histogram-icdf"></a>}}
+\if{latex}{\out{\hypertarget{method-rv_ratio_histogram-icdf}{}}}
 \subsection{Method \code{icdf()}}{
 Inverse of Cumulative Distribution Function
 \subsection{Usage}{
@@ -125,8 +125,8 @@ icdf values
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-sf"></a>}}
-\if{latex}{\out{\hypertarget{method-sf}{}}}
+\if{html}{\out{<a id="method-rv_ratio_histogram-sf"></a>}}
+\if{latex}{\out{\hypertarget{method-rv_ratio_histogram-sf}{}}}
 \subsection{Method \code{sf()}}{
 Survival Function
 \subsection{Usage}{
@@ -145,8 +145,8 @@ sf values
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-isf"></a>}}
-\if{latex}{\out{\hypertarget{method-isf}{}}}
+\if{html}{\out{<a id="method-rv_ratio_histogram-isf"></a>}}
+\if{latex}{\out{\hypertarget{method-rv_ratio_histogram-isf}{}}}
 \subsection{Method \code{isf()}}{
 Inverse of Survival Function
 \subsection{Usage}{
@@ -165,8 +165,8 @@ isf values
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fit"></a>}}
-\if{latex}{\out{\hypertarget{method-fit}{}}}
+\if{html}{\out{<a id="method-rv_ratio_histogram-fit"></a>}}
+\if{latex}{\out{\hypertarget{method-rv_ratio_histogram-fit}{}}}
 \subsection{Method \code{fit()}}{
 Fit method for the histograms
 \subsection{Usage}{
@@ -189,8 +189,8 @@ Fit method for the histograms
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-rv_ratio_histogram-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-rv_ratio_histogram-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

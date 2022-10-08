@@ -40,27 +40,32 @@ gev$fit(X)
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{GEV$new()}}
-\item \href{#method-clone}{\code{GEV$clone()}}
+\item \href{#method-GEV-new}{\code{GEV$new()}}
+\item \href{#method-GEV-qgradient}{\code{GEV$qgradient()}}
+\item \href{#method-GEV-pgradient}{\code{GEV$pgradient()}}
+\item \href{#method-GEV-clone}{\code{GEV$clone()}}
 }
 }
-\if{html}{
-\out{<details ><summary>Inherited methods</summary>}
-\itemize{
-\item \out{<span class="pkg-link" data-pkg="ROOPSD" data-topic="AbstractDist" data-id="cdf">}\href{../../ROOPSD/html/AbstractDist.html#method-cdf}{\code{ROOPSD::AbstractDist$cdf()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="ROOPSD" data-topic="AbstractDist" data-id="density">}\href{../../ROOPSD/html/AbstractDist.html#method-density}{\code{ROOPSD::AbstractDist$density()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="ROOPSD" data-topic="AbstractDist" data-id="fit">}\href{../../ROOPSD/html/AbstractDist.html#method-fit}{\code{ROOPSD::AbstractDist$fit()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="ROOPSD" data-topic="AbstractDist" data-id="icdf">}\href{../../ROOPSD/html/AbstractDist.html#method-icdf}{\code{ROOPSD::AbstractDist$icdf()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="ROOPSD" data-topic="AbstractDist" data-id="isf">}\href{../../ROOPSD/html/AbstractDist.html#method-isf}{\code{ROOPSD::AbstractDist$isf()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="ROOPSD" data-topic="AbstractDist" data-id="logdensity">}\href{../../ROOPSD/html/AbstractDist.html#method-logdensity}{\code{ROOPSD::AbstractDist$logdensity()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="ROOPSD" data-topic="AbstractDist" data-id="rvs">}\href{../../ROOPSD/html/AbstractDist.html#method-rvs}{\code{ROOPSD::AbstractDist$rvs()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="ROOPSD" data-topic="AbstractDist" data-id="sf">}\href{../../ROOPSD/html/AbstractDist.html#method-sf}{\code{ROOPSD::AbstractDist$sf()}}\out{</span>}
-}
-\out{</details>}
-}
+\if{html}{\out{
+<details><summary>Inherited methods</summary>
+<ul>
+<li><span class="pkg-link" data-pkg="ROOPSD" data-topic="AbstractDist" data-id="cdf"><a href='../../ROOPSD/html/AbstractDist.html#method-AbstractDist-cdf'><code>ROOPSD::AbstractDist$cdf()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="ROOPSD" data-topic="AbstractDist" data-id="density"><a href='../../ROOPSD/html/AbstractDist.html#method-AbstractDist-density'><code>ROOPSD::AbstractDist$density()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="ROOPSD" data-topic="AbstractDist" data-id="diagnostic"><a href='../../ROOPSD/html/AbstractDist.html#method-AbstractDist-diagnostic'><code>ROOPSD::AbstractDist$diagnostic()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="ROOPSD" data-topic="AbstractDist" data-id="fit"><a href='../../ROOPSD/html/AbstractDist.html#method-AbstractDist-fit'><code>ROOPSD::AbstractDist$fit()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="ROOPSD" data-topic="AbstractDist" data-id="icdf"><a href='../../ROOPSD/html/AbstractDist.html#method-AbstractDist-icdf'><code>ROOPSD::AbstractDist$icdf()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="ROOPSD" data-topic="AbstractDist" data-id="isf"><a href='../../ROOPSD/html/AbstractDist.html#method-AbstractDist-isf'><code>ROOPSD::AbstractDist$isf()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="ROOPSD" data-topic="AbstractDist" data-id="logdensity"><a href='../../ROOPSD/html/AbstractDist.html#method-AbstractDist-logdensity'><code>ROOPSD::AbstractDist$logdensity()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="ROOPSD" data-topic="AbstractDist" data-id="pdeltaCI"><a href='../../ROOPSD/html/AbstractDist.html#method-AbstractDist-pdeltaCI'><code>ROOPSD::AbstractDist$pdeltaCI()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="ROOPSD" data-topic="AbstractDist" data-id="qdeltaCI"><a href='../../ROOPSD/html/AbstractDist.html#method-AbstractDist-qdeltaCI'><code>ROOPSD::AbstractDist$qdeltaCI()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="ROOPSD" data-topic="AbstractDist" data-id="rvs"><a href='../../ROOPSD/html/AbstractDist.html#method-AbstractDist-rvs'><code>ROOPSD::AbstractDist$rvs()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="ROOPSD" data-topic="AbstractDist" data-id="sf"><a href='../../ROOPSD/html/AbstractDist.html#method-AbstractDist-sf'><code>ROOPSD::AbstractDist$sf()</code></a></span></li>
+</ul>
+</details>
+}}
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-GEV-new"></a>}}
+\if{latex}{\out{\hypertarget{method-GEV-new}{}}}
 \subsection{Method \code{new()}}{
 Create a new GEV object.
 \subsection{Usage}{
@@ -83,8 +88,52 @@ A new `GEV` object.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-GEV-qgradient"></a>}}
+\if{latex}{\out{\hypertarget{method-GEV-qgradient}{}}}
+\subsection{Method \code{qgradient()}}{
+Gradient of the quantile function
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GEV$qgradient(p, lower.tail = TRUE)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{p}}{[vector] Probabilities}
+
+\item{\code{lower.tail}}{[bool] If CDF or SF.}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+[vector] gradient
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-GEV-pgradient"></a>}}
+\if{latex}{\out{\hypertarget{method-GEV-pgradient}{}}}
+\subsection{Method \code{pgradient()}}{
+Gradient of the CDF function
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GEV$pgradient(x, lower.tail = TRUE)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{x}}{[vector] Quantiles}
+
+\item{\code{lower.tail}}{[bool] If CDF or SF.}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+[vector] gradient
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-GEV-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-GEV-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

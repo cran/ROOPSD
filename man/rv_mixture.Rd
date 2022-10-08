@@ -33,20 +33,20 @@ X   = rvX$rvs( 1000 )
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{rv_mixture$new()}}
-\item \href{#method-rvs}{\code{rv_mixture$rvs()}}
-\item \href{#method-density}{\code{rv_mixture$density()}}
-\item \href{#method-logdensity}{\code{rv_mixture$logdensity()}}
-\item \href{#method-cdf}{\code{rv_mixture$cdf()}}
-\item \href{#method-icdf}{\code{rv_mixture$icdf()}}
-\item \href{#method-sf}{\code{rv_mixture$sf()}}
-\item \href{#method-isf}{\code{rv_mixture$isf()}}
-\item \href{#method-clone}{\code{rv_mixture$clone()}}
+\item \href{#method-rv_mixture-new}{\code{rv_mixture$new()}}
+\item \href{#method-rv_mixture-rvs}{\code{rv_mixture$rvs()}}
+\item \href{#method-rv_mixture-density}{\code{rv_mixture$density()}}
+\item \href{#method-rv_mixture-logdensity}{\code{rv_mixture$logdensity()}}
+\item \href{#method-rv_mixture-cdf}{\code{rv_mixture$cdf()}}
+\item \href{#method-rv_mixture-icdf}{\code{rv_mixture$icdf()}}
+\item \href{#method-rv_mixture-sf}{\code{rv_mixture$sf()}}
+\item \href{#method-rv_mixture-isf}{\code{rv_mixture$isf()}}
+\item \href{#method-rv_mixture-clone}{\code{rv_mixture$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-rv_mixture-new"></a>}}
+\if{latex}{\out{\hypertarget{method-rv_mixture-new}{}}}
 \subsection{Method \code{new()}}{
 Create a new rv_mixture object.
 \subsection{Usage}{
@@ -68,8 +68,8 @@ A new `rv_mixture` object.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-rvs"></a>}}
-\if{latex}{\out{\hypertarget{method-rvs}{}}}
+\if{html}{\out{<a id="method-rv_mixture-rvs"></a>}}
+\if{latex}{\out{\hypertarget{method-rv_mixture-rvs}{}}}
 \subsection{Method \code{rvs()}}{
 Generation sample from the histogram
 \subsection{Usage}{
@@ -88,8 +88,8 @@ A vector of samples
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-density"></a>}}
-\if{latex}{\out{\hypertarget{method-density}{}}}
+\if{html}{\out{<a id="method-rv_mixture-density"></a>}}
+\if{latex}{\out{\hypertarget{method-rv_mixture-density}{}}}
 \subsection{Method \code{density()}}{
 Density function
 \subsection{Usage}{
@@ -108,8 +108,8 @@ density
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-logdensity"></a>}}
-\if{latex}{\out{\hypertarget{method-logdensity}{}}}
+\if{html}{\out{<a id="method-rv_mixture-logdensity"></a>}}
+\if{latex}{\out{\hypertarget{method-rv_mixture-logdensity}{}}}
 \subsection{Method \code{logdensity()}}{
 Log density function
 \subsection{Usage}{
@@ -128,8 +128,8 @@ the log density
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-cdf"></a>}}
-\if{latex}{\out{\hypertarget{method-cdf}{}}}
+\if{html}{\out{<a id="method-rv_mixture-cdf"></a>}}
+\if{latex}{\out{\hypertarget{method-rv_mixture-cdf}{}}}
 \subsection{Method \code{cdf()}}{
 Cumulative Distribution Function
 \subsection{Usage}{
@@ -148,8 +148,8 @@ cdf values
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-icdf"></a>}}
-\if{latex}{\out{\hypertarget{method-icdf}{}}}
+\if{html}{\out{<a id="method-rv_mixture-icdf"></a>}}
+\if{latex}{\out{\hypertarget{method-rv_mixture-icdf}{}}}
 \subsection{Method \code{icdf()}}{
 Inverse of Cumulative Distribution Function
 \subsection{Usage}{
@@ -168,8 +168,8 @@ icdf values
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-sf"></a>}}
-\if{latex}{\out{\hypertarget{method-sf}{}}}
+\if{html}{\out{<a id="method-rv_mixture-sf"></a>}}
+\if{latex}{\out{\hypertarget{method-rv_mixture-sf}{}}}
 \subsection{Method \code{sf()}}{
 Survival Function
 \subsection{Usage}{
@@ -188,8 +188,8 @@ sf values
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-isf"></a>}}
-\if{latex}{\out{\hypertarget{method-isf}{}}}
+\if{html}{\out{<a id="method-rv_mixture-isf"></a>}}
+\if{latex}{\out{\hypertarget{method-rv_mixture-isf}{}}}
 \subsection{Method \code{isf()}}{
 Inverse of Survival Function
 \subsection{Usage}{
@@ -208,8 +208,8 @@ isf values
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-rv_mixture-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-rv_mixture-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

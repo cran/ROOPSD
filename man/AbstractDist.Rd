@@ -19,6 +19,10 @@ This class is only used to be herited
 \item{\code{qdist}}{[function] quantile function}
 
 \item{\code{rdist}}{[function] random generator function}
+
+\item{\code{ks.test}}{[ks.test] Goodness of fit with ks.test}
+
+\item{\code{fit_success}}{[bool] TRUE only if the fit is a success and is occurred}
 }
 \if{html}{\out{</div>}}
 }
@@ -30,27 +34,33 @@ This class is only used to be herited
 \item{\code{opt}}{[stats::optim result] Result of the MLE to find parameters}
 
 \item{\code{cov}}{[matrix] Covariance matrix of parameters, inverse of hessian}
+
+\item{\code{coef}}{[vector] Vector of coefficients}
 }
 \if{html}{\out{</div>}}
 }
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{AbstractDist$new()}}
-\item \href{#method-rvs}{\code{AbstractDist$rvs()}}
-\item \href{#method-density}{\code{AbstractDist$density()}}
-\item \href{#method-logdensity}{\code{AbstractDist$logdensity()}}
-\item \href{#method-cdf}{\code{AbstractDist$cdf()}}
-\item \href{#method-sf}{\code{AbstractDist$sf()}}
-\item \href{#method-icdf}{\code{AbstractDist$icdf()}}
-\item \href{#method-isf}{\code{AbstractDist$isf()}}
-\item \href{#method-fit}{\code{AbstractDist$fit()}}
-\item \href{#method-clone}{\code{AbstractDist$clone()}}
+\item \href{#method-AbstractDist-new}{\code{AbstractDist$new()}}
+\item \href{#method-AbstractDist-rvs}{\code{AbstractDist$rvs()}}
+\item \href{#method-AbstractDist-density}{\code{AbstractDist$density()}}
+\item \href{#method-AbstractDist-logdensity}{\code{AbstractDist$logdensity()}}
+\item \href{#method-AbstractDist-cdf}{\code{AbstractDist$cdf()}}
+\item \href{#method-AbstractDist-sf}{\code{AbstractDist$sf()}}
+\item \href{#method-AbstractDist-icdf}{\code{AbstractDist$icdf()}}
+\item \href{#method-AbstractDist-isf}{\code{AbstractDist$isf()}}
+\item \href{#method-AbstractDist-fit}{\code{AbstractDist$fit()}}
+\item \href{#method-AbstractDist-qgradient}{\code{AbstractDist$qgradient()}}
+\item \href{#method-AbstractDist-qdeltaCI}{\code{AbstractDist$qdeltaCI()}}
+\item \href{#method-AbstractDist-pdeltaCI}{\code{AbstractDist$pdeltaCI()}}
+\item \href{#method-AbstractDist-diagnostic}{\code{AbstractDist$diagnostic()}}
+\item \href{#method-AbstractDist-clone}{\code{AbstractDist$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-AbstractDist-new"></a>}}
+\if{latex}{\out{\hypertarget{method-AbstractDist-new}{}}}
 \subsection{Method \code{new()}}{
 Create a new AbstractDist object.
 \subsection{Usage}{
@@ -80,8 +90,8 @@ A new `AbstractDist` object.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-rvs"></a>}}
-\if{latex}{\out{\hypertarget{method-rvs}{}}}
+\if{html}{\out{<a id="method-AbstractDist-rvs"></a>}}
+\if{latex}{\out{\hypertarget{method-AbstractDist-rvs}{}}}
 \subsection{Method \code{rvs()}}{
 Generation sample from the histogram
 \subsection{Usage}{
@@ -100,8 +110,8 @@ Generation sample from the histogram
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-density"></a>}}
-\if{latex}{\out{\hypertarget{method-density}{}}}
+\if{html}{\out{<a id="method-AbstractDist-density"></a>}}
+\if{latex}{\out{\hypertarget{method-AbstractDist-density}{}}}
 \subsection{Method \code{density()}}{
 Density function
 \subsection{Usage}{
@@ -120,8 +130,8 @@ Density function
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-logdensity"></a>}}
-\if{latex}{\out{\hypertarget{method-logdensity}{}}}
+\if{html}{\out{<a id="method-AbstractDist-logdensity"></a>}}
+\if{latex}{\out{\hypertarget{method-AbstractDist-logdensity}{}}}
 \subsection{Method \code{logdensity()}}{
 Log density function
 \subsection{Usage}{
@@ -140,8 +150,8 @@ Log density function
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-cdf"></a>}}
-\if{latex}{\out{\hypertarget{method-cdf}{}}}
+\if{html}{\out{<a id="method-AbstractDist-cdf"></a>}}
+\if{latex}{\out{\hypertarget{method-AbstractDist-cdf}{}}}
 \subsection{Method \code{cdf()}}{
 Cumulative Distribution Function
 \subsection{Usage}{
@@ -160,8 +170,8 @@ Cumulative Distribution Function
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-sf"></a>}}
-\if{latex}{\out{\hypertarget{method-sf}{}}}
+\if{html}{\out{<a id="method-AbstractDist-sf"></a>}}
+\if{latex}{\out{\hypertarget{method-AbstractDist-sf}{}}}
 \subsection{Method \code{sf()}}{
 Survival Function
 \subsection{Usage}{
@@ -180,8 +190,8 @@ Survival Function
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-icdf"></a>}}
-\if{latex}{\out{\hypertarget{method-icdf}{}}}
+\if{html}{\out{<a id="method-AbstractDist-icdf"></a>}}
+\if{latex}{\out{\hypertarget{method-AbstractDist-icdf}{}}}
 \subsection{Method \code{icdf()}}{
 Inverse of Cumulative Distribution Function
 \subsection{Usage}{
@@ -200,8 +210,8 @@ Inverse of Cumulative Distribution Function
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-isf"></a>}}
-\if{latex}{\out{\hypertarget{method-isf}{}}}
+\if{html}{\out{<a id="method-AbstractDist-isf"></a>}}
+\if{latex}{\out{\hypertarget{method-AbstractDist-isf}{}}}
 \subsection{Method \code{isf()}}{
 Inverse of Survival Function
 \subsection{Usage}{
@@ -220,18 +230,21 @@ Inverse of Survival Function
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fit"></a>}}
-\if{latex}{\out{\hypertarget{method-fit}{}}}
+\if{html}{\out{<a id="method-AbstractDist-fit"></a>}}
+\if{latex}{\out{\hypertarget{method-AbstractDist-fit}{}}}
 \subsection{Method \code{fit()}}{
 Fit method
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{AbstractDist$fit(Y)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{AbstractDist$fit(Y, n_max_try = 100)}\if{html}{\out{</div>}}
 }
 
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
 \item{\code{Y}}{[vector] Dataset to infer the histogram}
+
+\item{\code{n_max_try}}{[integer] Because the optim function can fails, the fit
+is retry n_try times.}
 }
 \if{html}{\out{</div>}}
 }
@@ -240,8 +253,100 @@ Fit method
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-AbstractDist-qgradient"></a>}}
+\if{latex}{\out{\hypertarget{method-AbstractDist-qgradient}{}}}
+\subsection{Method \code{qgradient()}}{
+Gradient of the quantile function
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{AbstractDist$qgradient(p, lower.tail = TRUE)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{p}}{[vector] Probabilities}
+
+\item{\code{lower.tail}}{[bool] If CDF or SF.}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+[vector] gradient
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-AbstractDist-qdeltaCI"></a>}}
+\if{latex}{\out{\hypertarget{method-AbstractDist-qdeltaCI}{}}}
+\subsection{Method \code{qdeltaCI()}}{
+Confidence interval of the quantile function
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{AbstractDist$qdeltaCI(p, Rt = FALSE, alpha = 0.05)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{p}}{[vector] Probabilities}
+
+\item{\code{Rt}}{[bool] if Probabilities or return times}
+
+\item{\code{alpha}}{[double] level of confidence interval}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+[list] Quantiles, and confidence interval
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-AbstractDist-pdeltaCI"></a>}}
+\if{latex}{\out{\hypertarget{method-AbstractDist-pdeltaCI}{}}}
+\subsection{Method \code{pdeltaCI()}}{
+Confidence interval of the CDF function
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{AbstractDist$pdeltaCI(x, Rt = FALSE, alpha = 0.05)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{x}}{[vector] Quantiles}
+
+\item{\code{Rt}}{[bool] if Probabilities or return times}
+
+\item{\code{alpha}}{[double] level of confidence interval}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+[list] CDF, and confidence interval
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-AbstractDist-diagnostic"></a>}}
+\if{latex}{\out{\hypertarget{method-AbstractDist-diagnostic}{}}}
+\subsection{Method \code{diagnostic()}}{
+Diagnostic of the fitted law
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{AbstractDist$diagnostic(Y, alpha = 0.05)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{Y}}{[vector] data to check}
+
+\item{\code{alpha}}{[double] level of confidence interval}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+[NULL]
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-AbstractDist-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-AbstractDist-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

@@ -37,27 +37,31 @@ gaml$fit(X)
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{Gamma$new()}}
-\item \href{#method-clone}{\code{Gamma$clone()}}
+\item \href{#method-Gamma-new}{\code{Gamma$new()}}
+\item \href{#method-Gamma-clone}{\code{Gamma$clone()}}
 }
 }
-\if{html}{
-\out{<details ><summary>Inherited methods</summary>}
-\itemize{
-\item \out{<span class="pkg-link" data-pkg="ROOPSD" data-topic="AbstractDist" data-id="cdf">}\href{../../ROOPSD/html/AbstractDist.html#method-cdf}{\code{ROOPSD::AbstractDist$cdf()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="ROOPSD" data-topic="AbstractDist" data-id="density">}\href{../../ROOPSD/html/AbstractDist.html#method-density}{\code{ROOPSD::AbstractDist$density()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="ROOPSD" data-topic="AbstractDist" data-id="fit">}\href{../../ROOPSD/html/AbstractDist.html#method-fit}{\code{ROOPSD::AbstractDist$fit()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="ROOPSD" data-topic="AbstractDist" data-id="icdf">}\href{../../ROOPSD/html/AbstractDist.html#method-icdf}{\code{ROOPSD::AbstractDist$icdf()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="ROOPSD" data-topic="AbstractDist" data-id="isf">}\href{../../ROOPSD/html/AbstractDist.html#method-isf}{\code{ROOPSD::AbstractDist$isf()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="ROOPSD" data-topic="AbstractDist" data-id="logdensity">}\href{../../ROOPSD/html/AbstractDist.html#method-logdensity}{\code{ROOPSD::AbstractDist$logdensity()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="ROOPSD" data-topic="AbstractDist" data-id="rvs">}\href{../../ROOPSD/html/AbstractDist.html#method-rvs}{\code{ROOPSD::AbstractDist$rvs()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="ROOPSD" data-topic="AbstractDist" data-id="sf">}\href{../../ROOPSD/html/AbstractDist.html#method-sf}{\code{ROOPSD::AbstractDist$sf()}}\out{</span>}
-}
-\out{</details>}
-}
+\if{html}{\out{
+<details><summary>Inherited methods</summary>
+<ul>
+<li><span class="pkg-link" data-pkg="ROOPSD" data-topic="AbstractDist" data-id="cdf"><a href='../../ROOPSD/html/AbstractDist.html#method-AbstractDist-cdf'><code>ROOPSD::AbstractDist$cdf()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="ROOPSD" data-topic="AbstractDist" data-id="density"><a href='../../ROOPSD/html/AbstractDist.html#method-AbstractDist-density'><code>ROOPSD::AbstractDist$density()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="ROOPSD" data-topic="AbstractDist" data-id="diagnostic"><a href='../../ROOPSD/html/AbstractDist.html#method-AbstractDist-diagnostic'><code>ROOPSD::AbstractDist$diagnostic()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="ROOPSD" data-topic="AbstractDist" data-id="fit"><a href='../../ROOPSD/html/AbstractDist.html#method-AbstractDist-fit'><code>ROOPSD::AbstractDist$fit()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="ROOPSD" data-topic="AbstractDist" data-id="icdf"><a href='../../ROOPSD/html/AbstractDist.html#method-AbstractDist-icdf'><code>ROOPSD::AbstractDist$icdf()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="ROOPSD" data-topic="AbstractDist" data-id="isf"><a href='../../ROOPSD/html/AbstractDist.html#method-AbstractDist-isf'><code>ROOPSD::AbstractDist$isf()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="ROOPSD" data-topic="AbstractDist" data-id="logdensity"><a href='../../ROOPSD/html/AbstractDist.html#method-AbstractDist-logdensity'><code>ROOPSD::AbstractDist$logdensity()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="ROOPSD" data-topic="AbstractDist" data-id="pdeltaCI"><a href='../../ROOPSD/html/AbstractDist.html#method-AbstractDist-pdeltaCI'><code>ROOPSD::AbstractDist$pdeltaCI()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="ROOPSD" data-topic="AbstractDist" data-id="qdeltaCI"><a href='../../ROOPSD/html/AbstractDist.html#method-AbstractDist-qdeltaCI'><code>ROOPSD::AbstractDist$qdeltaCI()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="ROOPSD" data-topic="AbstractDist" data-id="qgradient"><a href='../../ROOPSD/html/AbstractDist.html#method-AbstractDist-qgradient'><code>ROOPSD::AbstractDist$qgradient()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="ROOPSD" data-topic="AbstractDist" data-id="rvs"><a href='../../ROOPSD/html/AbstractDist.html#method-AbstractDist-rvs'><code>ROOPSD::AbstractDist$rvs()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="ROOPSD" data-topic="AbstractDist" data-id="sf"><a href='../../ROOPSD/html/AbstractDist.html#method-AbstractDist-sf'><code>ROOPSD::AbstractDist$sf()</code></a></span></li>
+</ul>
+</details>
+}}
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-Gamma-new"></a>}}
+\if{latex}{\out{\hypertarget{method-Gamma-new}{}}}
 \subsection{Method \code{new()}}{
 Create a new Gamma object.
 \subsection{Usage}{
@@ -78,8 +82,8 @@ A new `Gamma` object.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-Gamma-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-Gamma-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{
